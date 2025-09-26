@@ -10,7 +10,7 @@ split_string () {
   while [ ${#remaining_string} -gt 0 ] ; do
     debug "Remaining input: \n${remaining_string}"
 
-    local current_iteration=${remaining_string::64000} # GitHub has a 65535-char comment limit - truncate and iterate
+    local current_iteration=${remaining_string::20000} # GitHub has a 65535-char comment limit - truncate and iterate
     if [ ${#current_iteration} -ne ${#remaining_string} ] ; then
       debug "String is over 64k length limit.  Splitting at index ${#current_iteration} of ${#remaining_string}."
       current_iteration="${current_iteration%$'\n'*}" # trim to the last newline

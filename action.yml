@@ -43,9 +43,6 @@ runs:
         repository: 'athiedepayit/terraform-pr-commenter'
         ref: 'nodocker'
         path: ./tf-pr-commenter
-    - name: install dependencies
-      run: |
-        sudo apt-get -qq update && sudo apt-get -qq -y install curl perl jq
     - name: Run commenter image (plan)
       if: ${{ inputs.commenter_type == 'plan' }}
       env:
